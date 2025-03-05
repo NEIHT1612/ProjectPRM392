@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ProjectPRM392</string>
+    <string name="intro_title">Explore and Book\naffordable Flights\nwith Ease</string>
+    <string name="intro_subtitle">Book with confidence, knowing you\'re\n getting the best deal!</string>
+    <string name="get_started">Get Started</string>
+    <string name="i_have_an_account">I have an account</string>
+    <string name="let_s_explore_the_world_with_us">Let\'s explore the world with us!!!</string>
+    <string name="search_flights">Search Flights</string>
+    <string name="home">Home</string>
+    <string name="explorer">Explorer</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="profile">Profile</string>
+</resources>
