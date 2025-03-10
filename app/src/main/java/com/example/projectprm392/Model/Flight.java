@@ -11,6 +11,8 @@ public class Flight implements Serializable {
     private String fromShort;
     private Integer numberSeat;
     private Double price;
+    private String passenger;
+    private String seats;
     private String reservedSeats;
     private String time;
     private String to;
@@ -88,6 +90,21 @@ public class Flight implements Serializable {
         this.price = price;
     }
 
+    public String getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(String passenger) {
+        this.passenger = passenger;
+    }
+
+    public String getSeats() {
+        return seats;
+    }
+
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
     public String getReservedSeats() {
         return reservedSeats;
     }

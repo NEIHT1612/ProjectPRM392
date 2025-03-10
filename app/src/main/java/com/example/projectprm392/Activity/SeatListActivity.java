@@ -1,6 +1,9 @@
 package com.example.projectprm392.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -20,6 +23,8 @@ public class SeatListActivity extends BaseActivity {
     private ActivitySeatListBinding binding;
     private Flight flight;
     private Double price = 0.0;
+    private int num = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,22 @@ public class SeatListActivity extends BaseActivity {
 
     private void setVariable() {
         binding.btnBack.setOnClickListener(v -> finish());
+
+        binding.btnConfirmSeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(num > 0){
+                    flight.setPassenger(binding.txtNameSeatSelected.getText().toString());
+                    flight.setPrice(price);
+                    Intent intent = new Intent(SeatListActivity.this, TicketDetailActivity.class);
+                    intent.putExtra("flight", flight);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(SeatListActivity.this, "Please select your seat", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void initSeatList() {
@@ -78,7 +99,8 @@ public class SeatListActivity extends BaseActivity {
                 binding.txtNumberSelected.setText(num + " Seat Selected");
                 binding.txtNameSeatSelected.setText(selectedName);
                 DecimalFormat df = new DecimalFormat("#.##");
-                price = (Double.valueOf(df.format(num * flight.getPrice())));
+                SeatListActivity.this.price = (Double.valueOf(df.format(num * flight.getPrice())));
+                SeatListActivity.this.num = num;
                 binding.txtTotalPrice.setText("$" + price);
             }
         }, seatList);
