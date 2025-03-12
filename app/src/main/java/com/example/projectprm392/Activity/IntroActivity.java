@@ -11,9 +11,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.projectprm392.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class IntroActivity extends BaseActivity {
-    Button btnStart;
+    Button btnStart, btnRegisterIntro;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,9 +30,15 @@ public class IntroActivity extends BaseActivity {
         });
 
         btnStart = findViewById(R.id.btnStart);
+        btnRegisterIntro = findViewById(R.id.btnRegisterIntro);
 
         btnStart.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        btnRegisterIntro.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
     }

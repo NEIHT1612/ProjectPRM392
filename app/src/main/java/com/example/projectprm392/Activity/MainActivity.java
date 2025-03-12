@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import com.example.projectprm392.Model.Location;
 import com.example.projectprm392.R;
 import com.example.projectprm392.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
     private int passenger = 1;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM, yyyy", Locale.ENGLISH);
     private Calendar calendar = Calendar.getInstance();
+    private TextView txtAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +39,16 @@ public class MainActivity extends BaseActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getCurrentUser();
         initLocations();
         initPassengers();
         initDatePickup();
         setVariable();
+    }
+
+    private void getCurrentUser() {
+        txtAccount = findViewById(R.id.txtAccount);
+        txtAccount.setText(user.getEmail());
     }
 
     private void setVariable() {
@@ -64,6 +72,16 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             } catch (ParseException e) {
                 Toast.makeText(MainActivity.this, "Invalid date format!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.btnSignout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -85,10 +85,10 @@
             style="@android:style/Widget.Button"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:id="@+id/button2"
+            android:id="@+id/btnRegisterIntro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/i_have_an_account"
+            android:text="@string/dont_have_an_account"
             android:textColor="@color/white"
             android:background="@drawable/stroke_bg"/>
     </LinearLayout>
