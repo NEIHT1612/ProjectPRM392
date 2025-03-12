@@ -3,6 +3,7 @@ package com.example.projectprm392.Model;
 import java.io.Serializable;
 
 public class Flight implements Serializable {
+    private String airlineId;
     private String airlineName;
     private String arriveTime;
     private String classSeat;
@@ -24,6 +25,14 @@ public class Flight implements Serializable {
     @Override
     public String toString() {
         return from;
+    }
+
+    public String getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(String airlineId) {
+        this.airlineId = airlineId;
     }
 
     public String getAirlineName() {
