@@ -4,6 +4,14 @@ public class Location {
     private int Id;
     private String Name;
 
+    public Location() {
+    }
+
+    public Location(int id, String name) {
+        Id = id;
+        Name = name;
+    }
+
     public int getId() {
         return Id;
     }

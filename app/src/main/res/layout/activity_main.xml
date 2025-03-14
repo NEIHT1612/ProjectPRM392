@@ -79,7 +79,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView3"
-                    app:srcCompat="@drawable/bell_icon" />
+                    app:srcCompat="@drawable/logout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
