@@ -1,8 +1,10 @@
 package com.example.projectprm392.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class ListLocationActivity extends AppCompatActivity {
     EditText etLocation;
     Button btnViewLocation, btnInsertLocation, btnUpdateLocation, btnDeleteLocation;
     ListView lvLocations;
+    ImageView btnBack;
+
     DatabaseReference databaseReference;
     List<Location> locationList;
     LocationAdapter locationAdapter;
@@ -49,6 +53,8 @@ public class ListLocationActivity extends AppCompatActivity {
         btnUpdateLocation = findViewById(R.id.btnUpdateLocation);
         btnDeleteLocation = findViewById(R.id.btnDeleteLocation);
         lvLocations = findViewById(R.id.lvLocations);
+        btnBack = findViewById(R.id.btnBack);
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Locations");
         locationList = new ArrayList<>();
@@ -64,6 +70,11 @@ public class ListLocationActivity extends AppCompatActivity {
         btnInsertLocation.setOnClickListener(v -> addLocation());
         btnUpdateLocation.setOnClickListener(v -> updateLocation());
         btnDeleteLocation.setOnClickListener(v -> deleteLocation());
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ListLocationActivity.this, AdminActivity.class);
+            startActivity(intent);
+            finish(); // Optional: closes the current activity
+        });
     }
 
     private void deleteLocation() {
